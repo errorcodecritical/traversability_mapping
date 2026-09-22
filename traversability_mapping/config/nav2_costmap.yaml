@@ -1,0 +1,43 @@
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      global_frame: map
+      robot_base_frame: base_link
+      update_frequency: 2.0
+      publish_frequency: 2.0
+      rolling_window: true
+      width: 20.0
+      height: 20.0
+      resolution: 0.1
+      plugins: ["static_layer", "inflation_layer"]
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_topic: /occupancy_map_local
+        map_subscribe_transient_local: true
+        subscribe_to_updates: false
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.2
+        cost_scaling_factor: 10.0
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      global_frame: odom
+      robot_base_frame: base_link
+      update_frequency: 5.0
+      publish_frequency: 5.0
+      rolling_window: true
+      width: 6.0
+      height: 6.0
+      resolution: 0.1
+      plugins: ["static_layer", "inflation_layer"]
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_topic: /occupancy_map_local
+        map_subscribe_transient_local: true
+        subscribe_to_updates: false
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.2
+        cost_scaling_factor: 10.0

@@ -1,0 +1,109 @@
+/**:
+  ros__parameters:
+    use_sim_time: false
+
+    # Frames and topics
+    map_frame: map
+    base_frame: base_link
+    lidar_frame: hesai_lidar
+    input_cloud_topic: /hesai/points_decimated
+    filtered_cloud_topic: /filtered_pointcloud
+    occupancy_topic: /occupancy_map_local
+    elevation_topic: /occupancy_map_local_height
+    goal_topic: /prm_goal
+    global_path_topic: /global_path
+    filtered_cloud_visual_high_topic: /filtered_pointcloud_visual_high_res
+    filtered_cloud_visual_low_topic: /filtered_pointcloud_visual_low_res
+    laser_scan_topic: /pointcloud_2_laserscan
+    elevation_cloud_topic: /elevation_pointcloud
+    path_trajectory_topic: /path_trajectory
+    path_library_valid_topic: /path_library_valid
+    path_library_origin_topic: /path_library_origin
+    prm_graph_topic: /prm_graph
+    prm_path_topic: /prm_path
+    prm_single_source_paths_topic: /prm_single_source_paths
+    prm_nodes_topic: /prm_cloud_nodes
+    prm_graph_cloud_topic: /prm_cloud_graph
+
+    # Sensor geometry
+    n_scan: 128
+    horizon_scan: 1800
+    use_cloud_ring: true
+    sensor_minimum_range: 0.5
+    use_height_cut: true
+    height_cut_above_sensor: 1.5
+    max_ring_index: 64
+
+    # Map geometry
+    map_resolution: 0.1
+    map_cube_length: 1.0
+    global_map_length: 2000.0
+    local_map_length: 20.0
+
+    # Filtering
+    urban_mapping: false
+    scan_num_curb_filter: 8
+    scan_num_slope_filter: 10
+    sensor_range_limit: 20.0
+    filter_height_limit: 0.25
+    filter_angle_limit: 25.0
+
+    # Elevation prediction
+    prediction_enable: true
+    prediction_kernel_size: 0.2
+
+    # Occupancy and temporal fusion
+    occupied_probability_laser: 0.9
+    occupied_probability_no_laser: 0.2
+    large_log_odds: 100.0
+    max_log_odds_belief: 20.0
+    occupancy_ema_alpha: 0.3
+    obstacle_belief_alpha: 0.3
+    obstacle_belief_threshold: 80.0
+    hard_obstacle_step_factor: 2.0
+
+    # Visualization and robot model
+    visualization_radius: 50.0
+    visualization_frequency: 2.0
+    robot_radius: 0.2
+    sensor_height: 0.5
+
+    # Traversability scoring
+    traversability_observe_time_threshold: 10
+    traversability_calculating_distance: 15.0
+    traversability_weight_slope: 0.5
+    traversability_weight_step: 0.3
+    traversability_weight_roughness: 0.2
+    traversability_slope_sigmoid_width: 5.0
+    traversability_roughness_scale: 0.2
+
+    # PRM cost model
+    planning_unknown: true
+    obstacle_occupancy_threshold: 75
+    unknown_cell_traversability: 50
+    costmap_inflation_radius: 0.15
+    path_cost_scale_traversability: 2000.0
+    path_cost_scale_elevation: 2.0
+    path_cost_scale_distance: 20.0
+    path_cost_weight_traversability: 0.34
+    path_cost_weight_elevation: 0.33
+    path_cost_weight_distance: 0.33
+
+    # PRM sampling and connectivity
+    sampling_time_budget: 0.01
+    neighbor_sample_radius: 0.5
+    neighbor_connect_height: 1.0
+    neighbor_connect_radius: 1.0
+    neighbor_search_radius: 10.0
+    waypoint_reach_distance: 1.0
+    new_goal_distance_threshold: 0.2
+
+    # Trajectory-library planner
+    path_depth: 4
+    angular_velocity_max_deg: 7.0
+    angular_velocity_resolution_deg: 0.5
+    angular_velocity_max_secondary_deg: 0.5
+    angular_velocity_resolution_secondary_deg: 0.25
+    forward_velocity: 0.1
+    simulation_delta_time: 1.0
+    simulation_time_steps: 30
